@@ -14,7 +14,7 @@ Statuses are mapped into a normalized enum, timestamps accept epoch numbers or I
 
 ## Live events
 
-`useTaskFeed` owns the WebSocket lifecycle and dispatches parsed events into Redux. Reconnects use capped exponential backoff, and events for unloaded tasks create partial placeholder records so updates are visible without pretending the full task is known.
+`useTaskFeed` owns the WebSocket lifecycle and dispatches parsed events into Redux. Reconnects use capped exponential backoff, and events for unloaded tasks are ignored until the full task is loaded from the API.
 
 ## Streaming markdown safety
 

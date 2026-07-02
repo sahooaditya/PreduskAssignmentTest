@@ -142,20 +142,3 @@ export function normalizeTask(raw: RawTask): Task {
     }
   }
 }
-
-export function makePartialTask(id: string, patch?: Partial<Task>): Task {
-  return {
-    id,
-    title: `Unloaded task ${id}`,
-    type: "unknown",
-    rawType: "unloaded",
-    status: "unknown",
-    assignee: null,
-    annotationCount: 0,
-    updatedAt: Date.now(),
-    meta: {},
-    warnings: ["Created from a live event before the full task was loaded."],
-    isPartial: true,
-    ...patch
-  } satisfies Task;
-}

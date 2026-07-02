@@ -54,10 +54,7 @@ export function TaskTable({
                 >
                   <td className="px-3 py-2">
                     <div className="font-medium">{task.title}</div>
-                    <div className="text-xs text-neutral-500">
-                      {task.id}
-                      {task.isPartial ? " - partial from live feed" : ""}
-                    </div>
+                    <div className="text-xs text-neutral-500">{task.id}</div>
                   </td>
                   <td className="px-3 py-2">{task.type}</td>
                   <td className="px-3 py-2">{task.status}</td>

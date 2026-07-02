@@ -5,7 +5,7 @@ import {
   type PayloadAction
 } from "@reduxjs/toolkit";
 import type { RootState } from "@/store/store";
-import { makePartialTask, normalizeAssignee, normalizeStatus, normalizeTimestamp } from "./normalize";
+import { normalizeAssignee, normalizeStatus, normalizeTimestamp } from "./normalize";
 import { fetchTasksPageApi } from "./tasksApi";
 import { readTaskCache, writeTaskCache } from "./taskCache";
 import type { Task, TaskFeedEvent, TaskFilters } from "./types";
@@ -71,10 +71,7 @@ function upsertLivePatch(state: TasksState, id: string, patch: Partial<Task>) {
   const existing = state.entities[id];
   if (existing) {
     tasksAdapter.updateOne(state, { id, changes: patch });
-    return;
   }
-
-  tasksAdapter.upsertOne(state, makePartialTask(id, patch));
 }
 
 export const tasksSlice = createSlice({

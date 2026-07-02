@@ -19,6 +19,8 @@ export const selectVisibleTasks = createSelector(
     const search = filters.search.trim().toLowerCase();
 
     const filtered = tasks.filter((task) => {
+      if (task.isPartial) return false;
+
       const typeMatches = filters.type === "all" || task.type === filters.type;
       const statusMatches =
         filters.status === "all" || task.status === filters.status;
